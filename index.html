@@ -1,11 +1,97 @@
-<h1>Não sou o cara, você é o cara!</h1>
+<html>
 
-<h2> Você já verificou isso <span id="cont"></span></h2>
+   <body>
+      <h1> Eu não sou o cara, você é o cara! </h1>
+      <h2> Você já se certificou disso <span id="cont"></span></h2>
+      <table border="1">
+         <tr>
+            <th>Candidato</th>
+            <th>Quantidade de votos</th>
+            <th>Votar</th>
+         </tr>
+         <tr>
+            <td>ERIC</td>
+            <td><span id="vtEric"></span></td>
+            <td><button type="button" id="btnEric" value="valueEric" onclick="somaVoto(value)">Votar</button></td>
+         </tr>
+         <tr>
+            <td>RAFAEL</td>
+            <td><span id="vtRafael"></span></td>
+            <td><button type="button" id="btnRafael" value="valueRafael" onclick="somaVoto(value)">Votar</button></td>
+         </tr>
+         <tr>
+            <td>MATEUS</td>
+            <td><span id="vtMateus"></span></td>
+            <td><button type="button" id="btnMateus" value="valueMateus" onclick="somaVoto(value)">Votar</button></td>
+         </tr>
+         <tr>
+            <td>GABRIEL</td>
+            <td><span id="vtGabriel"></span></td>
+            <td><button type="button" id="btnGabriel" value="valueGabriel" onclick="somaVoto(value)">Votar</button></td>
+         </tr>
+         <tr>
+            <td>GUILHERME</td>
+            <td><span id="vtGuilherme"></span></td>
+            <td><button type="button" id="btnGuilherme" value="valueGuilhermer" onclick="somaVoto(value)">Votar</button>
+            </td>
+         </tr>
+      </table>
+   </body>
 
-<script>
-  let cnt = localStorage.getItem("contador");
-  if(!cnt) cnt = 0
-  cnt = Number(cnt)+1
-  document.getElementById("cont").innerHTML = cnt + (cnt == 1 ? " vez" : " vezes");
-  localStorage.setItem('contador',cnt);
+   <script>
+      //#region declaração memoria local
+      let cnt = localStorage.getItem("contador");
+      let eric = localStorage.getItem("er");
+      let rafael = localStorage.getItem("ra");
+      let mateus = localStorage.getItem("ma");
+      let gabriel = localStorage.getItem("ga");
+      let guilherme = localStorage.getItem("gu");
+      if (!cnt) cnt = 0
+      if (!eric) eric = 0
+      if (!rafael) rafael = 0
+      if (!mateus) mateus = 0
+      if (!gabriel) gabriel = 0
+      if (!guilherme) guilherme = 0
+      cnt = Number(cnt) + 1
+      //#endregion
+      document.getElementById("vtEric").innerHTML = eric
+      document.getElementById("vtRafael").innerHTML = rafael
+      document.getElementById("vtMateus").innerHTML = mateus
+      document.getElementById("vtGabriel").innerHTML = gabriel
+      document.getElementById("vtGuilherme").innerHTML = guilherme
+   
+   function somaVoto(caraSelecionado) {
+      switch (caraSelecionado) {
+         case "valueEric":
+         eric = Number(eric) + 1
+         document.getElementById("vtEric").innerHTML = eric
+         localStorage.setItem('er', eric);
+         break;
+      case "valueRafael":
+         rafael = Number(rafael) + 1
+         document.getElementById("vtRafael").innerHTML = rafael
+         localStorage.setItem('ra', rafael)
+         break;
+      case "valueMateus":
+         mateus = Number(mateus) + 1
+         document.getElementById("vtMateus").innerHTML = mateus
+         localStorage.setItem('ma', mateus)
+         break;
+      case "valueGabriel":
+         gabriel = Number(gabriel) + 1
+         document.getElementById("vtGabriel").innerHTML = gabriel
+         localStorage.setItem('ga', gabriel)
+         break;
+      case "valueGuilhermer":
+         guilherme = Number(guilherme) + 1
+         document.getElementById("vtGuilherme").innerHTML = guilherme
+         localStorage.setItem('gu', guilherme)
+         break;
+   }
+}
+
+document.getElementById("cont").innerHTML = cnt + (cnt == 1 ? " vez" : " vezes");
+localStorage.setItem('contador', cnt);
 </script>
+
+</html>
