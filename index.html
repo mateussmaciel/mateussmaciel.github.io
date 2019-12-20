@@ -1,11 +1,11 @@
 <h1>Não sou o cara, você é o cara!</h1>
 
-<h2> Você já verificou isso <span id="contador"></span></h2>
+<h2> Você já verificou isso <span id="cont"></span></h2>
 
 <script>
   let cnt = localStorage.getItem("contador");
   if(!cnt) cnt = 0
   cnt = Number(cnt)+1
-  document.getElementById("cont").innetHTML = cnt + (cnt == 1 ? " vez" : " vezes");
+  document.getElementById("cont").innerHTML = cnt + (cnt == 1 ? " vez" : " vezes");
   localStorage.setItem('contador',cnt);
 </script>
